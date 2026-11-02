@@ -44,7 +44,7 @@ a{color:inherit}
 .top{position:fixed;inset:0 0 auto 0;z-index:50;color:var(--cream);border-bottom:1px solid transparent;transition:background-color .25s ease,border-color .25s ease}
 .top.solid{background:rgba(20,17,15,.94);border-bottom-color:var(--hair)}
 .top-in{display:flex;align-items:center;justify-content:space-between;height:calc(60px + env(safe-area-inset-top,0px));padding:env(safe-area-inset-top,0px) var(--gr) 0 var(--gl);max-width:1120px;margin:0 auto}
-.mark{font:400 22px/1 var(--display);letter-spacing:.34em;text-decoration:none;-webkit-user-select:none;user-select:none}
+.mark{font:400 22px/1 "Cinzel Decorative",var(--display);letter-spacing:.3em;text-decoration:none;-webkit-user-select:none;user-select:none}
 .top nav{display:flex;gap:24px;font:400 12px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase}
 .top nav a{text-decoration:none;min-height:44px;display:inline-flex;align-items:center}
 @media(max-width:480px){.top nav .lnk{display:none}}
@@ -243,36 +243,36 @@ dialog.out::backdrop{opacity:0}
 (function(){
   var WA = "https://wa.me/51955362025?text=";
   var P = [
-    {id:"mandarin-sky",brand:"Armaf",name:"Odyssey Mandarin Sky",img:"mandarin-sky.webp",price:167,
-     line:"Mandarina y azafrán sobre un fondo de vetiver.",
-     desc:"Cítrica y especiada. Abre con mandarina, naranja y azafrán, suma un toque de caramelo y haba tonka en el corazón, y se mantiene seca y amaderada con vetiver y cedro. Edición limitada.",
-     specs:[["Casa","Armaf"],["Concentración","Eau de parfum"],["Para","Hombre"],["Familia","Amaderada frutal"],["Presentación","100 ml"]],
-     top:["Salvia","Mandarina","Naranja","Azafrán"],heart:["Caramelo","Haba tonka","Terciopelo"],base:["Vetiver","Cedro","Ambroxan"]},
-    {id:"khamrah",brand:"Lattafa",name:"Khamrah",img:"khamrah.webp",price:167,
-     line:"Cálida y golosa: canela, dátiles y vainilla.",
-     desc:"Cálida y golosa. Mezcla canela y nuez moscada con dátiles y orquídea de vainilla, y termina en un fondo envolvente de ámbar, haba tonka y sándalo.",
-     specs:[["Casa","Lattafa"],["Concentración","Eau de parfum"],["Para","Unisex"],["Familia","Oriental gourmand"],["Presentación","100 ml"]],
-     top:["Canela","Bergamota","Nuez moscada"],heart:["Dátiles","Orquídea de vainilla","Heliotropo"],base:["Ámbar","Haba tonka","Almizcle","Sándalo"]},
-    {id:"9pm",brand:"Afnan",name:"9pm",img:"9pm.webp",price:167,
-     line:"Gourmand especiado con canela y vainilla.",
-     desc:"Una fragancia gourmand y especiada que parte de la bergamota, la canela y la manzana. Su fondo cálido de ámbar, vainilla y haba tonka está pensado para la noche.",
-     specs:[["Casa","Afnan"],["Concentración","Eau de parfum"],["Para","Hombre"],["Familia","Gourmand especiada"],["Presentación","100 ml"]],
-     top:["Bergamota","Lavandín","Canela","Manzana"],heart:["Lirio de los valles","Azahar"],base:["Pachulí","Ámbar","Vainilla","Haba tonka"]},
-    {id:"asad",brand:"Lattafa",name:"Asad",img:"asad.webp",price:167,
-     line:"Ámbar y especias, con pimienta, tabaco y vainilla.",
-     desc:"Una fragancia masculina intensa. Abre con pimienta negra, tabaco y piña, tiene un corazón de pachulí, café e iris, y deja un fondo cálido de vainilla, ámbar, maderas secas y benjuí.",
-     specs:[["Casa","Lattafa"],["Concentración","Eau de parfum"],["Para","Hombre"],["Familia","Ámbar especiada"],["Presentación","100 ml"]],
-     top:["Pimienta negra","Tabaco","Piña"],heart:["Pachulí","Café","Iris"],base:["Vainilla","Ámbar","Maderas secas","Benjuí"]},
-    {id:"honor-glory",brand:"Lattafa",name:"Honor & Glory",img:"honor-glory.webp",price:177,
+    {id:"honor-glory",brand:"Lattafa",name:"Badee Al Oud Honor & Glory",img:"honor-glory.webp",price:177,
      line:"Dulce y especiado, con piña, canela y vainilla.",
      desc:"Parte de la línea Badee Al Oud. Abre con piña y un toque de crème brûlée, tiene un corazón especiado de cúrcuma, canela, benjuí y pimienta negra, y se asienta en vainilla, cashmeran, sándalo y musgo.",
      specs:[["Casa","Lattafa"],["Concentración","Eau de parfum"],["Para","Unisex"],["Familia","Oriental especiada"],["Presentación","100 ml"]],
      top:["Piña","Crème brûlée"],heart:["Cúrcuma","Canela","Benjuí","Pimienta negra"],base:["Vainilla","Cashmeran","Sándalo","Musgo"]},
-    {id:"club-de-nuit",brand:"Armaf",name:"Club de Nuit Intense Man",img:"club-de-nuit.webp",alpha:true,price:197,
-     line:"Amaderado fresco con piña, abedul y ámbar gris.",
-     desc:"Una fragancia masculina que abre con frutas brillantes y limón, sigue con un corazón de abedul, jazmín y rosa, y se asienta en ámbar gris, almizcle y vainilla.",
-     specs:[["Casa","Armaf"],["Para","Hombre"],["Familia","Amaderada fresca"],["Presentación","Consultar"]],
-     top:["Piña","Grosella negra","Limón","Bergamota","Manzana"],heart:["Abedul","Jazmín","Rosa"],base:["Ámbar gris","Almizcle","Pachulí","Vainilla"]}
+    {id:"hawas-kobra",brand:"Rasasi",name:"Hawas Kobra",img:"hawas-kobra.webp",price:187,
+     line:"Oscuro y especiado, con jengibre, canela y ámbar.",
+     desc:"La versión oscura de Hawas para hombre, en un frasco negro con tapa de cordón. Abre con jengibre, bergamota y mandarina, tiene un corazón de canela, neroli y té verde, y cierra con ámbar, almizcle y maderas.",
+     specs:[["Casa","Rasasi"],["Concentración","Eau de parfum"],["Para","Hombre"],["Familia","Amaderada especiada"],["Presentación","100 ml"]],
+     top:["Jengibre","Bergamota","Mandarina"],heart:["Canela","Neroli","Té verde"],base:["Ámbar","Almizcle","Maderas"]},
+    {id:"kingdom-crown",brand:"Zakat Signature",name:"Kingdom Crown",img:"kingdom-crown.webp",price:172,
+     line:"Frasco verde esmeralda con tapa de león plateada.",
+     desc:"De la línea Signature de Zakat, en un frasco de vidrio verde esmeralda con una tapa plateada calada y un león como emblema, dentro de una caja con rejilla geométrica. Una pieza de presencia llamativa. Pregúntanos por sus notas y te las confirmamos por WhatsApp.",
+     specs:[["Casa","Zakat Signature"],["Concentración","Eau de parfum"],["Para","Consultar"],["Familia","Consultar"],["Presentación","100 ml"]],
+     top:[],heart:[],base:[]},
+    {id:"pure-gold",brand:"Lattafa",name:"24 Carat Pure Gold",img:"pure-gold.webp",price:152,
+     line:"Oriental con oud, rosa y vainilla.",
+     desc:"Un oriental intenso y envolvente. Combina oud, azafrán y canela en la salida con rosa y sándalo en el corazón, y termina en cuero, incienso, almizcle, ámbar y vainilla. Tiene un perfil algo más masculino, aunque es unisex.",
+     specs:[["Casa","Lattafa"],["Concentración","Eau de parfum"],["Para","Unisex"],["Familia","Oriental"],["Presentación","100 ml"]],
+     top:["Oud","Azafrán","Canela"],heart:["Rosa","Sándalo"],base:["Cuero","Incienso","Almizcle","Ámbar","Vainilla"]},
+    {id:"timeline",brand:"Vürv",name:"Timeline For Men",img:"timeline.webp",price:142,
+     line:"Cítrico y amaderado, con toronja y cedro.",
+     desc:"Una fragancia masculina, limpia y amaderada. Parte de la toronja, sigue con un corazón de cedro y cierra con un fondo mineral de pedernal. Ligera y fácil de llevar a diario.",
+     specs:[["Casa","Vürv"],["Concentración","Eau de parfum"],["Para","Hombre"],["Familia","Cítrica amaderada"],["Presentación","100 ml"]],
+     top:["Toronja"],heart:["Cedro"],base:["Pedernal"]},
+    {id:"entice-ruby",brand:"Vürv",name:"Entice Ruby",img:"entice-ruby.webp",price:152,
+     line:"Frutal floral con frutos rojos, rosa y vainilla.",
+     desc:"Una fragancia femenina frutal, floral y dulce. Abre con frutos rojos, bergamota y mandarina, tiene un corazón de rosas, jazmín y flores blancas, y termina en ámbar, almizcle, maderas suaves y vainilla.",
+     specs:[["Casa","Vürv"],["Concentración","Eau de parfum"],["Para","Mujer"],["Familia","Frutal floral gourmand"],["Presentación","100 ml"]],
+     top:["Frutos rojos","Bergamota","Mandarina"],heart:["Rosas","Jazmín","Flores blancas"],base:["Ámbar","Almizcle","Maderas suaves","Vainilla"]}
   ];
   var rm = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   if (rm) document.documentElement.classList.add("rm");
