@@ -178,7 +178,7 @@ dialog.out::backdrop{opacity:0}
 <main>
   <section class="hero" id="hero" aria-label="Portada">
     <div class="stage">
-      <video class="vid" id="clip" muted loop playsinline autoplay preload="auto" poster="media/portada-poster.jpg" aria-hidden="true" tabindex="-1"><source src="media/portada.mp4" type="video/mp4"></video>
+      <video class="vid" id="clip" muted loop playsinline autoplay preload="auto" poster="portada-poster.jpg" aria-hidden="true" tabindex="-1"><source src="portada.mp4" type="video/mp4"></video>
       <div class="shade" aria-hidden="true"></div>
       <div class="ring" aria-hidden="true"></div>
       <div class="title" id="title">
@@ -243,32 +243,32 @@ dialog.out::backdrop{opacity:0}
 (function(){
   var WA = "https://wa.me/51955362025?text=";
   var P = [
-    {id:"mandarin-sky",brand:"Armaf",name:"Odyssey Mandarin Sky",img:"media/mandarin-sky.webp",price:167,
+    {id:"mandarin-sky",brand:"Armaf",name:"Odyssey Mandarin Sky",img:"mandarin-sky.webp",price:167,
      line:"Mandarina y azafrán sobre un fondo de vetiver.",
      desc:"Cítrica y especiada. Abre con mandarina, naranja y azafrán, suma un toque de caramelo y haba tonka en el corazón, y se mantiene seca y amaderada con vetiver y cedro. Edición limitada.",
      specs:[["Casa","Armaf"],["Concentración","Eau de parfum"],["Para","Hombre"],["Familia","Amaderada frutal"],["Presentación","100 ml"]],
      top:["Salvia","Mandarina","Naranja","Azafrán"],heart:["Caramelo","Haba tonka","Terciopelo"],base:["Vetiver","Cedro","Ambroxan"]},
-    {id:"khamrah",brand:"Lattafa",name:"Khamrah",img:"media/khamrah.webp",price:167,
+    {id:"khamrah",brand:"Lattafa",name:"Khamrah",img:"khamrah.webp",price:167,
      line:"Cálida y golosa: canela, dátiles y vainilla.",
      desc:"Cálida y golosa. Mezcla canela y nuez moscada con dátiles y orquídea de vainilla, y termina en un fondo envolvente de ámbar, haba tonka y sándalo.",
      specs:[["Casa","Lattafa"],["Concentración","Eau de parfum"],["Para","Unisex"],["Familia","Oriental gourmand"],["Presentación","100 ml"]],
      top:["Canela","Bergamota","Nuez moscada"],heart:["Dátiles","Orquídea de vainilla","Heliotropo"],base:["Ámbar","Haba tonka","Almizcle","Sándalo"]},
-    {id:"9pm",brand:"Afnan",name:"9pm",img:"media/9pm.webp",price:167,
+    {id:"9pm",brand:"Afnan",name:"9pm",img:"9pm.webp",price:167,
      line:"Gourmand especiado con canela y vainilla.",
      desc:"Una fragancia gourmand y especiada que parte de la bergamota, la canela y la manzana. Su fondo cálido de ámbar, vainilla y haba tonka está pensado para la noche.",
      specs:[["Casa","Afnan"],["Concentración","Eau de parfum"],["Para","Hombre"],["Familia","Gourmand especiada"],["Presentación","100 ml"]],
      top:["Bergamota","Lavandín","Canela","Manzana"],heart:["Lirio de los valles","Azahar"],base:["Pachulí","Ámbar","Vainilla","Haba tonka"]},
-    {id:"asad",brand:"Lattafa",name:"Asad",img:"media/asad.webp",price:167,
+    {id:"asad",brand:"Lattafa",name:"Asad",img:"asad.webp",price:167,
      line:"Ámbar y especias, con pimienta, tabaco y vainilla.",
      desc:"Una fragancia masculina intensa. Abre con pimienta negra, tabaco y piña, tiene un corazón de pachulí, café e iris, y deja un fondo cálido de vainilla, ámbar, maderas secas y benjuí.",
      specs:[["Casa","Lattafa"],["Concentración","Eau de parfum"],["Para","Hombre"],["Familia","Ámbar especiada"],["Presentación","100 ml"]],
      top:["Pimienta negra","Tabaco","Piña"],heart:["Pachulí","Café","Iris"],base:["Vainilla","Ámbar","Maderas secas","Benjuí"]},
-    {id:"honor-glory",brand:"Lattafa",name:"Honor & Glory",img:"media/honor-glory.webp",price:177,
+    {id:"honor-glory",brand:"Lattafa",name:"Honor & Glory",img:"honor-glory.webp",price:177,
      line:"Dulce y especiado, con piña, canela y vainilla.",
      desc:"Parte de la línea Badee Al Oud. Abre con piña y un toque de crème brûlée, tiene un corazón especiado de cúrcuma, canela, benjuí y pimienta negra, y se asienta en vainilla, cashmeran, sándalo y musgo.",
      specs:[["Casa","Lattafa"],["Concentración","Eau de parfum"],["Para","Unisex"],["Familia","Oriental especiada"],["Presentación","100 ml"]],
      top:["Piña","Crème brûlée"],heart:["Cúrcuma","Canela","Benjuí","Pimienta negra"],base:["Vainilla","Cashmeran","Sándalo","Musgo"]},
-    {id:"club-de-nuit",brand:"Armaf",name:"Club de Nuit Intense Man",img:"media/club-de-nuit.webp",alpha:true,price:197,
+    {id:"club-de-nuit",brand:"Armaf",name:"Club de Nuit Intense Man",img:"club-de-nuit.webp",alpha:true,price:197,
      line:"Amaderado fresco con piña, abedul y ámbar gris.",
      desc:"Una fragancia masculina que abre con frutas brillantes y limón, sigue con un corazón de abedul, jazmín y rosa, y se asienta en ámbar gris, almizcle y vainilla.",
      specs:[["Casa","Armaf"],["Para","Hombre"],["Familia","Amaderada fresca"],["Presentación","Consultar"]],
