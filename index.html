@@ -1,0 +1,419 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Perfumería Vega</title>
+<meta name="description" content="Perfumería Vega: los perfumes árabes más vendidos del Perú, con sus precios. Pedidos por WhatsApp.">
+<meta name="theme-color" content="#14110F">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,400;1,500&family=Jost:wght@300;400&family=Marcellus&display=swap">
+<style>
+/* Paleta "Noche Ámbar": carbón, café tostado, cobre, oro viejo y crema. */
+:root{
+  --night:#14110F;
+  --brown:#2C1F17;
+  --brown-2:#3A2A20;
+  --copper:#C27B35;
+  --gold:#C9A55C;
+  --cream:#EFE4D0;
+  --sand:#E4D5B7;
+  --muted:#BFAE94;
+  --hair:rgba(201,165,92,.28);
+  --serif:"Cormorant Garamond",Georgia,serif;
+  --display:"Marcellus","Cormorant Garamond",Georgia,serif;
+  --sans:"Jost","Helvetica Neue",Arial,sans-serif;
+  --ease-out:cubic-bezier(.23,1,.32,1);
+  --ease-drawer:cubic-bezier(.32,.72,0,1);
+  --gl:max(16px,env(safe-area-inset-left,0px));
+  --gr:max(16px,env(safe-area-inset-right,0px));
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{-webkit-tap-highlight-color:transparent;-webkit-text-size-adjust:100%;overscroll-behavior:none;scroll-behavior:smooth;background:var(--night)}
+html.lock{overflow:hidden}
+body{margin:0;background:var(--night);color:var(--cream);font-family:var(--sans);font-weight:300;font-size:16px;line-height:1.65;overflow-x:hidden}
+img{max-width:100%}
+button{font:inherit;color:inherit;touch-action:manipulation}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.in{max-width:1120px;margin:0 auto;padding-left:var(--gl);padding-right:var(--gr)}
+.eyebrow{font:400 12px/1.4 var(--sans);letter-spacing:.28em;text-transform:uppercase;color:var(--gold)}
+
+/* header */
+.top{position:fixed;inset:0 0 auto 0;z-index:50;color:var(--cream);border-bottom:1px solid transparent;transition:background-color .25s ease,border-color .25s ease}
+.top.solid{background:rgba(20,17,15,.94);border-bottom-color:var(--hair)}
+.top-in{display:flex;align-items:center;justify-content:space-between;height:calc(60px + env(safe-area-inset-top,0px));padding:env(safe-area-inset-top,0px) var(--gr) 0 var(--gl);max-width:1120px;margin:0 auto}
+.mark{font:400 22px/1 var(--display);letter-spacing:.34em;text-decoration:none;-webkit-user-select:none;user-select:none}
+.top nav{display:flex;gap:24px;font:400 12px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase}
+.top nav a{text-decoration:none;min-height:44px;display:inline-flex;align-items:center}
+@media(max-width:480px){.top nav .lnk{display:none}}
+
+/* hero */
+.hero{position:relative;height:calc(100svh + 120svh)}
+.stage{position:sticky;top:0;height:100svh;overflow:hidden;background:
+  radial-gradient(60% 45% at 50% 42%,rgba(194,123,53,.30),rgba(194,123,53,0) 70%),
+  radial-gradient(90% 60% at 50% 110%,rgba(201,165,92,.16),rgba(201,165,92,0) 70%),
+  linear-gradient(180deg,#1b1511 0%,#14110F 60%,#0f0c0a 100%)}
+.vid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.55}
+.shade{position:absolute;inset:0;background:radial-gradient(70% 55% at 50% 44%,rgba(20,17,15,.55),rgba(20,17,15,0) 75%),linear-gradient(180deg,rgba(20,17,15,.55) 0%,rgba(20,17,15,.25) 40%,rgba(20,17,15,.85) 100%)}
+.ring{position:absolute;left:50%;top:44%;width:min(88vw,560px);aspect-ratio:1;translate:-50% -50%;border:1px solid var(--hair);border-radius:50%;pointer-events:none}
+.ring::after{content:"";position:absolute;inset:7%;border:1px solid rgba(201,165,92,.14);border-radius:50%}
+.title{position:absolute;left:0;right:0;top:44%;translate:0 -50%;display:flex;flex-direction:column;align-items:center;gap:18px;text-align:center;padding:0 var(--gr) 0 var(--gl);pointer-events:none}
+.title h1{margin:0;font:400 clamp(76px,24vw,180px)/.95 var(--display);letter-spacing:.12em;padding-left:.12em;color:var(--cream)}
+.title .sub{font:400 clamp(12px,3.4vw,15px)/1 var(--sans);letter-spacing:.52em;padding-left:.52em;text-transform:uppercase;color:var(--gold)}
+.title .lema{margin:6px 0 0;font:italic 400 clamp(20px,5.6vw,30px)/1.3 var(--serif);max-width:20ch;text-wrap:balance;color:var(--cream)}
+[data-u]{display:inline-block;opacity:0;will-change:transform,opacity}
+.title .sp{display:inline-block;width:.28em}
+.hint{position:absolute;left:0;right:0;bottom:calc(28px + env(safe-area-inset-bottom,0px));display:flex;flex-direction:column;align-items:center;gap:10px;color:var(--cream);font:400 11px/1 var(--sans);letter-spacing:.3em;text-transform:uppercase;pointer-events:none}
+.hint i{display:block;width:1px;height:40px;background:var(--gold);transform-origin:top;animation:drip 2.4s var(--ease-out) infinite}
+@keyframes drip{0%{transform:scaleY(0)}60%{transform:scaleY(1);opacity:1}100%{transform:scaleY(1);opacity:0}}
+html.rm .hero{height:100svh}
+html.rm [data-u]{opacity:1!important;transform:none!important}
+html.rm .hint{display:none}
+
+/* shop */
+.shop{position:relative;z-index:2;background:var(--night);padding:88px 0 96px}
+.head{display:flex;flex-direction:column;gap:14px;max-width:600px;margin-bottom:44px}
+.head h2{margin:0;font:400 clamp(32px,6.4vw,54px)/1.08 var(--display);text-wrap:balance}
+.head p{margin:0;color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+@media(min-width:760px){.grid{grid-template-columns:repeat(3,1fr);gap:22px}}
+.card{position:relative;background:var(--brown);border:1px solid var(--hair);border-radius:8px;overflow:hidden;display:flex;flex-direction:column;transition:transform 160ms var(--ease-out)}
+.card:active{transform:scale(.985)}
+.hit{position:absolute;inset:0;z-index:3;border:0;background:none;cursor:pointer;border-radius:inherit}
+.pic{position:relative;background:var(--sand);aspect-ratio:1;display:grid;place-items:center;overflow:hidden}
+.pic img{display:block;width:100%;height:100%;object-fit:contain;mix-blend-mode:multiply;transition:transform 320ms var(--ease-out)}
+.pic img.nb,.sh-pic img.nb{mix-blend-mode:normal}
+.rank{position:absolute;left:10px;top:10px;z-index:2;min-width:30px;height:30px;padding:0 9px;border-radius:15px;background:var(--night);color:var(--gold);border:1px solid var(--gold);font:500 16px/28px var(--serif);text-align:center}
+.ph{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;width:100%;height:100%;color:var(--brown)}
+.ph span{font:500 64px/1 var(--serif)}
+.ph small{font:400 11px/1 var(--sans);letter-spacing:.22em;text-transform:uppercase}
+.meta{padding:16px 16px 18px;display:flex;flex-direction:column;gap:5px;flex:1}
+.brand{font:400 11px/1.4 var(--sans);letter-spacing:.26em;text-transform:uppercase;color:var(--gold)}
+.meta h3{margin:0;font:400 clamp(20px,5vw,27px)/1.15 var(--display);color:var(--cream)}
+.line{margin:2px 0 0;font:300 14px/1.5 var(--sans);color:var(--muted);display:none}
+@media(min-width:760px){.line{display:block}}
+.foot{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:auto;padding-top:12px}
+.price{font:400 23px/1 var(--display);color:var(--cream)}
+.more{display:none;font:400 11px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--gold);border-bottom:1px solid var(--copper);padding-bottom:5px}
+@media(min-width:760px){.more{display:inline}}
+@media(hover:hover) and (pointer:fine){.card:hover .pic img{transform:translateY(-4px)}}
+
+/* closing */
+.close{position:relative;z-index:2;background:var(--brown);border-top:1px solid var(--hair);padding:80px 0 88px;text-align:center}
+.close .in{display:flex;flex-direction:column;align-items:center;gap:20px}
+.close h2{margin:0;font:400 clamp(30px,6.4vw,50px)/1.1 var(--display);text-wrap:balance;max-width:16ch}
+.close p{margin:0;color:var(--muted);max-width:34ch}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font:400 13px/1 var(--sans);letter-spacing:.18em;text-transform:uppercase;min-height:48px;padding:0 28px;border-radius:2px;border:1px solid var(--copper);background:var(--copper);color:var(--night);cursor:pointer;text-decoration:none;transition:transform 160ms var(--ease-out),background-color 200ms ease}
+.btn:active{transform:scale(.97)}
+footer{background:var(--night);color:var(--muted);padding:36px 0 calc(36px + env(safe-area-inset-bottom,0px));font:300 13px/1.6 var(--sans);border-top:1px solid var(--hair)}
+footer .in{display:flex;flex-wrap:wrap;gap:8px 32px;justify-content:space-between}
+
+/* whatsapp button */
+.fab{position:fixed;z-index:48;right:var(--gr);bottom:max(16px,env(safe-area-inset-bottom,0px));width:60px;height:60px;border-radius:50%;background:var(--copper);color:var(--night);display:grid;place-items:center;box-shadow:0 6px 22px rgba(0,0,0,.5);border:1px solid var(--gold);transition:transform 160ms var(--ease-out)}
+.fab:active{transform:scale(.94)}
+.fab svg{width:28px;height:28px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+
+/* sheet */
+dialog{border:0;padding:0;margin:0;color:var(--cream);background:var(--brown);overflow:hidden;position:fixed;inset:auto 0 0 0;width:100%;max-width:none;max-height:90dvh;border-radius:16px 16px 0 0;transform:translateY(0);transition:transform 380ms var(--ease-drawer),opacity 200ms ease-out}
+dialog::backdrop{background:rgba(10,8,6,.7);opacity:1;transition:opacity 300ms ease-out}
+dialog.out{transform:translateY(100%);transition-duration:260ms,200ms}
+dialog.out::backdrop{opacity:0}
+@starting-style{dialog[open]{transform:translateY(100%)}dialog[open]::backdrop{opacity:0}}
+.sheet-in{position:relative;display:flex;flex-direction:column;max-height:90dvh}
+.grab{height:34px;flex:0 0 34px;display:grid;place-items:center;touch-action:none;cursor:grab}
+.grab span{width:40px;height:4px;border-radius:2px;background:var(--hair)}
+.x{position:absolute;right:max(12px,env(safe-area-inset-right,0px));top:6px;z-index:4;width:44px;height:44px;border-radius:50%;border:1px solid var(--hair);background:var(--brown);display:grid;place-items:center;cursor:pointer;transition:transform 160ms var(--ease-out)}
+.x:active{transform:scale(.94)}
+.x svg{width:18px;height:18px;stroke:var(--cream);stroke-width:1.5;fill:none;stroke-linecap:round}
+.sheet-scroll{overflow-y:auto;overscroll-behavior:contain;padding-bottom:env(safe-area-inset-bottom,0px)}
+.sh-pic{background:var(--sand);display:grid;place-items:center;padding:12px 0;min-height:240px}
+.sh-pic img{width:min(78%,360px);height:auto;display:block;mix-blend-mode:multiply}
+.sh-pic .ph{height:240px}
+.sh-info{padding:24px max(20px,env(safe-area-inset-right,0px)) 28px max(20px,env(safe-area-inset-left,0px));display:flex;flex-direction:column;gap:14px}
+.sh-info h2{margin:0;font:400 clamp(30px,7.4vw,42px)/1.1 var(--display)}
+.sh-info .desc{margin:0;color:var(--muted);font-size:16px}
+.specs{display:grid;grid-template-columns:auto 1fr;gap:8px 20px;margin:4px 0 0;padding:16px 0;border-block:1px solid var(--hair);font-size:14px}
+.specs dt{color:var(--muted)}
+.specs dd{margin:0;text-align:right}
+.pyr{display:flex;flex-direction:column;gap:14px}
+.pyr h4{margin:0 0 6px;font:400 11px/1.4 var(--sans);letter-spacing:.26em;text-transform:uppercase;color:var(--gold)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chips span{border:1px solid var(--hair);border-radius:999px;padding:5px 12px;font-size:14px;line-height:1.3;background:var(--brown-2)}
+.buy{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:6px}
+.buy .price{font-size:34px}
+.buy .btn{flex:1}
+.fine{margin:0;font-size:12px;color:var(--muted)}
+@media(min-width:860px){
+  dialog{inset:0;margin:auto;width:min(940px,92vw);max-height:86vh;border-radius:16px;transform:scale(1);height:fit-content}
+  dialog.out{transform:scale(.97);opacity:0}
+  @starting-style{dialog[open]{transform:scale(.96);opacity:0}}
+  .sheet-in{max-height:86vh}
+  .grab{display:none}
+  .x{top:14px;right:14px}
+  .sheet-scroll{display:grid;grid-template-columns:1fr 1fr;overflow:hidden}
+  .sh-pic{padding:40px 0}
+  .sh-info{overflow-y:auto;max-height:86vh;padding:44px 36px 32px}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .hint i{animation:none;transform:none}
+  dialog,dialog::backdrop{transition-duration:1ms!important}
+}
+</style>
+</head>
+<body>
+
+<header class="top" id="top">
+  <div class="top-in">
+    <a class="mark" href="#hero">VEGA</a>
+    <nav aria-label="Principal">
+      <a class="lnk" href="#masvendidos">Más vendidos</a>
+      <a href="https://wa.me/51955362025?text=Hola%20Perfumer%C3%ADa%20Vega%2C%20quiero%20hacer%20un%20pedido" target="_blank" rel="noopener">WhatsApp</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="hero" aria-label="Portada">
+    <div class="stage">
+      <video class="vid" id="clip" muted loop playsinline autoplay preload="auto" poster="media/portada-poster.jpg" aria-hidden="true" tabindex="-1"><source src="media/portada.mp4" type="video/mp4"></video>
+      <div class="shade" aria-hidden="true"></div>
+      <div class="ring" aria-hidden="true"></div>
+      <div class="title" id="title">
+        <h1 aria-label="Vega"><span aria-hidden="true" id="w1"></span></h1>
+        <div class="sub" aria-hidden="true" id="w2"></div>
+        <p class="lema" aria-hidden="true" id="w3"></p>
+      </div>
+      <div class="hint" id="hint"><span>Desliza</span><i></i></div>
+    </div>
+  </section>
+
+  <section class="shop" id="masvendidos">
+    <div class="in">
+      <div class="head">
+        <span class="eyebrow">Top 6 · Perú</span>
+        <h2>Los perfumes árabes más vendidos</h2>
+        <p>Las fragancias que más se piden hoy en el Perú. Toca una para ver su descripción y sus notas.</p>
+      </div>
+      <div class="grid" id="grid"></div>
+    </div>
+  </section>
+
+  <section class="close">
+    <div class="in">
+      <span class="eyebrow">Pedidos</span>
+      <h2>¿Ya elegiste tu fragancia?</h2>
+      <p>Escríbenos por WhatsApp y coordinamos tu pedido.</p>
+      <a class="btn" href="https://wa.me/51955362025?text=Hola%20Perfumer%C3%ADa%20Vega%2C%20quiero%20hacer%20un%20pedido" target="_blank" rel="noopener">Escribir por WhatsApp</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="in">
+    <span>Perfumería Vega · Perú · WhatsApp +51 955 362 025</span>
+    <span>Demo de diseño. Precios y notas referenciales; las marcas pertenecen a sus dueños.</span>
+  </div>
+</footer>
+
+<a class="fab" href="https://wa.me/51955362025?text=Hola%20Perfumer%C3%ADa%20Vega%2C%20quiero%20hacer%20un%20pedido" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.2a8.8 8.8 0 0 0-7.6 13.2L3.2 20.8l4.5-1.2A8.8 8.8 0 1 0 12 3.200z"/><path d="M9 8.500c-.4 1.600.2 3.200 1.500 4.500s2.900 2 4.500 1.600l.8-1.300-2-1-.9.700c-.9-.4-1.700-1.200-2.100-2.100l.7-.9-1-2z"/></svg></a>
+
+<dialog id="sheet" aria-labelledby="shName">
+  <div class="sheet-in">
+    <div class="grab" id="grab"><span></span></div>
+    <button class="x" id="shClose" type="button" aria-label="Cerrar"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    <div class="sheet-scroll" id="shScroll">
+      <div class="sh-pic" id="shPic"></div>
+      <div class="sh-info">
+        <span class="brand" id="shBrand"></span>
+        <h2 id="shName"></h2>
+        <p class="desc" id="shDesc"></p>
+        <dl class="specs" id="shSpecs"></dl>
+        <div class="pyr" id="shPyr"></div>
+        <div class="buy"><span class="price" id="shPrice"></span><a class="btn" id="shBuy" href="#" target="_blank" rel="noopener">Pedir por WhatsApp</a></div>
+        <p class="fine">Las notas olfativas y el precio son referenciales y pueden variar.</p>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<script>
+(function(){
+  var WA = "https://wa.me/51955362025?text=";
+  var P = [
+    {id:"mandarin-sky",brand:"Armaf",name:"Odyssey Mandarin Sky",img:"media/mandarin-sky.webp",price:167,
+     line:"Mandarina y azafrán sobre un fondo de vetiver.",
+     desc:"Cítrica y especiada. Abre con mandarina, naranja y azafrán, suma un toque de caramelo y haba tonka en el corazón, y se mantiene seca y amaderada con vetiver y cedro. Edición limitada.",
+     specs:[["Casa","Armaf"],["Concentración","Eau de parfum"],["Para","Hombre"],["Familia","Amaderada frutal"],["Presentación","100 ml"]],
+     top:["Salvia","Mandarina","Naranja","Azafrán"],heart:["Caramelo","Haba tonka","Terciopelo"],base:["Vetiver","Cedro","Ambroxan"]},
+    {id:"khamrah",brand:"Lattafa",name:"Khamrah",img:"media/khamrah.webp",price:167,
+     line:"Cálida y golosa: canela, dátiles y vainilla.",
+     desc:"Cálida y golosa. Mezcla canela y nuez moscada con dátiles y orquídea de vainilla, y termina en un fondo envolvente de ámbar, haba tonka y sándalo.",
+     specs:[["Casa","Lattafa"],["Concentración","Eau de parfum"],["Para","Unisex"],["Familia","Oriental gourmand"],["Presentación","100 ml"]],
+     top:["Canela","Bergamota","Nuez moscada"],heart:["Dátiles","Orquídea de vainilla","Heliotropo"],base:["Ámbar","Haba tonka","Almizcle","Sándalo"]},
+    {id:"9pm",brand:"Afnan",name:"9pm",img:"media/9pm.webp",price:167,
+     line:"Gourmand especiado con canela y vainilla.",
+     desc:"Una fragancia gourmand y especiada que parte de la bergamota, la canela y la manzana. Su fondo cálido de ámbar, vainilla y haba tonka está pensado para la noche.",
+     specs:[["Casa","Afnan"],["Concentración","Eau de parfum"],["Para","Hombre"],["Familia","Gourmand especiada"],["Presentación","100 ml"]],
+     top:["Bergamota","Lavandín","Canela","Manzana"],heart:["Lirio de los valles","Azahar"],base:["Pachulí","Ámbar","Vainilla","Haba tonka"]},
+    {id:"asad",brand:"Lattafa",name:"Asad",img:"media/asad.webp",price:167,
+     line:"Ámbar y especias, con pimienta, tabaco y vainilla.",
+     desc:"Una fragancia masculina intensa. Abre con pimienta negra, tabaco y piña, tiene un corazón de pachulí, café e iris, y deja un fondo cálido de vainilla, ámbar, maderas secas y benjuí.",
+     specs:[["Casa","Lattafa"],["Concentración","Eau de parfum"],["Para","Hombre"],["Familia","Ámbar especiada"],["Presentación","100 ml"]],
+     top:["Pimienta negra","Tabaco","Piña"],heart:["Pachulí","Café","Iris"],base:["Vainilla","Ámbar","Maderas secas","Benjuí"]},
+    {id:"honor-glory",brand:"Lattafa",name:"Honor & Glory",img:"media/honor-glory.webp",price:177,
+     line:"Dulce y especiado, con piña, canela y vainilla.",
+     desc:"Parte de la línea Badee Al Oud. Abre con piña y un toque de crème brûlée, tiene un corazón especiado de cúrcuma, canela, benjuí y pimienta negra, y se asienta en vainilla, cashmeran, sándalo y musgo.",
+     specs:[["Casa","Lattafa"],["Concentración","Eau de parfum"],["Para","Unisex"],["Familia","Oriental especiada"],["Presentación","100 ml"]],
+     top:["Piña","Crème brûlée"],heart:["Cúrcuma","Canela","Benjuí","Pimienta negra"],base:["Vainilla","Cashmeran","Sándalo","Musgo"]},
+    {id:"club-de-nuit",brand:"Armaf",name:"Club de Nuit Intense Man",img:"media/club-de-nuit.webp",alpha:true,price:197,
+     line:"Amaderado fresco con piña, abedul y ámbar gris.",
+     desc:"Una fragancia masculina que abre con frutas brillantes y limón, sigue con un corazón de abedul, jazmín y rosa, y se asienta en ámbar gris, almizcle y vainilla.",
+     specs:[["Casa","Armaf"],["Para","Hombre"],["Familia","Amaderada fresca"],["Presentación","Consultar"]],
+     top:["Piña","Grosella negra","Limón","Bergamota","Manzana"],heart:["Abedul","Jazmín","Rosa"],base:["Ámbar gris","Almizcle","Pachulí","Vainilla"]}
+  ];
+  var rm = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (rm) document.documentElement.classList.add("rm");
+  var $ = function(id){ return document.getElementById(id); };
+  function esc(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/"/g,"&quot;"); }
+  function soles(n){ return "S/ " + n; }
+  function picHTML(p, lazy){
+    if (!p.img) return '<div class="ph" role="img" aria-label="Foto próximamente"><span>V</span><small>Foto próximamente</small></div>';
+    return '<img src="' + p.img + '"' + (p.alpha ? ' class="nb"' : '') + ' alt="' + esc(p.name + ", de " + p.brand) + '" width="736" height="736"' + (lazy ? ' loading="lazy" decoding="async"' : '') + '>';
+  }
+
+  /* ---------- cards ---------- */
+  $("grid").innerHTML = P.map(function(p, i){
+    return '<article class="card"><div class="pic"><span class="rank" aria-label="Puesto ' + (i + 1) + '">' + (i + 1) + '</span>' + picHTML(p, i > 1) + '</div>' +
+      '<div class="meta"><span class="brand">' + esc(p.brand) + '</span><h3>' + esc(p.name) + '</h3><p class="line">' + esc(p.line) + '</p>' +
+      '<div class="foot"><span class="price">' + soles(p.price) + '</span><span class="more">Ver detalles</span></div></div>' +
+      '<button class="hit" type="button" data-i="' + i + '" aria-label="Ver detalles de ' + esc(p.name) + '"></button></article>';
+  }).join("");
+
+  /* ---------- hero letters ---------- */
+  var units = [];
+  function spell(el, text, words){
+    var frag = document.createDocumentFragment();
+    var parts = words ? text.split(" ") : text.split("");
+    parts.forEach(function(t, k){
+      var s = document.createElement("span");
+      s.setAttribute("data-u", ""); s.textContent = t;
+      frag.appendChild(s); units.push(s);
+      if (words && k < parts.length - 1) { var sp = document.createElement("span"); sp.className = "sp"; frag.appendChild(sp); }
+    });
+    el.appendChild(frag);
+  }
+  spell($("w1"), "VEGA", false);
+  spell($("w2"), "PERFUMERÍA", false);
+  spell($("w3"), "Fragancias árabes con carácter.", true);
+
+  var hero = $("hero"), stage = hero.querySelector(".stage"), title = $("title"), hint = $("hint"), top = $("top");
+  var vh = 640, T = 1, raf = 0;
+  function clamp(x){ return x < 0 ? 0 : x > 1 ? 1 : x; }
+  function ease(t){ return 1 - Math.pow(1 - t, 3); }
+  function measure(){ vh = stage.offsetHeight; T = Math.max(1, hero.offsetHeight - vh); }
+  function frame(){
+    raf = 0;
+    var y = window.pageYOffset || 0;
+    top.classList.toggle("solid", y > T + vh - 64);
+    if (rm) return;
+    var h = clamp(y / T), n = units.length, i, u, e, local;
+    for (i = 0; i < n; i++) {
+      u = units[i];
+      local = clamp((h - (0.03 + i * (0.55 / n))) / 0.1);
+      e = ease(local);
+      u.style.opacity = e;
+      u.style.transform = "translate3d(0," + ((1 - e) * 14).toFixed(1) + "px,0)";
+    }
+    var out = clamp((h - 0.78) / 0.22);
+    title.style.opacity = 1 - out;
+    title.style.transform = "translate3d(0," + (-out * 24).toFixed(1) + "px,0)";
+    hint.style.opacity = 1 - clamp(h / 0.04);
+  }
+  function schedule(){ if (!raf) raf = requestAnimationFrame(frame); }
+  window.addEventListener("scroll", schedule, { passive: true });
+  window.addEventListener("resize", function(){ measure(); schedule(); });
+  measure(); frame();
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(function(){ measure(); frame(); });
+  window.addEventListener("load", function(){ measure(); frame(); });
+
+  /* ---------- video ---------- */
+  var clip = $("clip");
+  if (rm) { clip.removeAttribute("autoplay"); clip.pause(); }
+  else if ("IntersectionObserver" in window) {
+    new IntersectionObserver(function(es){
+      if (es[0].isIntersecting) { var r = clip.play(); if (r && r.catch) r.catch(function(){}); } else clip.pause();
+    }).observe(stage);
+  }
+
+  /* ---------- sheet ---------- */
+  var sheet = $("sheet"), grab = $("grab"), shScroll = $("shScroll"), root = document.documentElement;
+  var closing = false, trigger = null;
+  function chips(a){ return '<div class="chips">' + a.map(function(x){ return "<span>" + esc(x) + "</span>"; }).join("") + "</div>"; }
+  function openSheet(i, trig){
+    var p = P[i];
+    $("shPic").innerHTML = picHTML(p, false);
+    $("shBrand").textContent = p.brand + " · Puesto " + (i + 1) + " en ventas";
+    $("shName").textContent = p.name;
+    $("shDesc").textContent = p.desc;
+    $("shSpecs").innerHTML = p.specs.map(function(s){ return "<dt>" + esc(s[0]) + "</dt><dd>" + esc(s[1]) + "</dd>"; }).join("");
+    $("shPyr").innerHTML = '<div><h4>Salida</h4>' + chips(p.top) + '</div><div><h4>Corazón</h4>' + chips(p.heart) + '</div><div><h4>Fondo</h4>' + chips(p.base) + '</div>';
+    $("shPrice").textContent = soles(p.price);
+    $("shBuy").href = WA + encodeURIComponent("Hola Perfumería Vega, quiero pedir " + p.name + " (" + soles(p.price) + ")");
+    shScroll.scrollTop = 0;
+    trigger = trig; closing = false;
+    sheet.classList.remove("out"); sheet.style.transform = ""; sheet.style.transition = "";
+    if (!sheet.open) sheet.showModal();
+    root.classList.add("lock");
+  }
+  function finish(){
+    if (sheet.open) sheet.close();
+    sheet.classList.remove("out"); sheet.style.transform = ""; sheet.style.transition = "";
+    root.classList.remove("lock"); closing = false;
+    if (trigger && trigger.focus) trigger.focus({ preventScroll: true });
+  }
+  function closeSheet(){
+    if (closing || !sheet.open) return;
+    closing = true;
+    sheet.style.transition = ""; sheet.style.transform = "";
+    sheet.classList.add("out");
+    var done = false;
+    function end(){ if (done) return; done = true; finish(); }
+    sheet.addEventListener("transitionend", function te(ev){ if (ev.target === sheet && ev.propertyName === "transform") { sheet.removeEventListener("transitionend", te); end(); } });
+    setTimeout(end, 340);
+  }
+  document.addEventListener("click", function(ev){
+    var b = ev.target.closest && ev.target.closest(".hit");
+    if (b) openSheet(+b.getAttribute("data-i"), b);
+  });
+  $("shClose").addEventListener("click", closeSheet);
+  sheet.addEventListener("cancel", function(ev){ ev.preventDefault(); closeSheet(); });
+  sheet.addEventListener("click", function(ev){ if (ev.target === sheet) closeSheet(); });
+
+  var gy = 0, gt = 0, gdy = 0, gid = null;
+  grab.addEventListener("pointerdown", function(ev){
+    if (gid !== null) return;
+    gid = ev.pointerId; gy = ev.clientY; gt = Date.now(); gdy = 0;
+    grab.setPointerCapture(gid); sheet.style.transition = "none";
+  });
+  grab.addEventListener("pointermove", function(ev){
+    if (ev.pointerId !== gid) return;
+    var dy = ev.clientY - gy;
+    gdy = dy < 0 ? dy * 0.15 : dy;
+    sheet.style.transform = "translateY(" + gdy.toFixed(1) + "px)";
+  });
+  function release(ev){
+    if (ev.pointerId !== gid) return;
+    gid = null;
+    var v = Math.abs(gdy) / Math.max(1, Date.now() - gt);
+    if (gdy > 110 || (gdy > 20 && v > 0.11)) closeSheet();
+    else { sheet.style.transition = ""; sheet.style.transform = ""; }
+  }
+  grab.addEventListener("pointerup", release);
+  grab.addEventListener("pointercancel", release);
+})();
+</script>
+</body>
+</html>
